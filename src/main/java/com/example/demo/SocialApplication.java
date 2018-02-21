@@ -28,8 +28,8 @@ public class SocialApplication extends WebSecurityConfigurerAdapter {
 		return principal;
 	}
 	
-	 @Override
-	 protected void configure(HttpSecurity http) throws Exception {
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
 	     http
 	      .antMatcher("/**")
 	      .authorizeRequests()
@@ -39,7 +39,8 @@ public class SocialApplication extends WebSecurityConfigurerAdapter {
 	        .authenticated()
 	      .and().logout().logoutSuccessUrl("/").permitAll()
 	      .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
-	 }
+	}
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SocialApplication.class, args);
 	}
